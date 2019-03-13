@@ -1,0 +1,4 @@
+I met some challenges when I tried to show my information on my website.
+I rewrote the file 'readme', but nothing changed.
+Finally, I learned that I should delete the initial setting then my information can be showed in the website from Melaniei.
+I gained a lot in this practical.
