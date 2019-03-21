@@ -11,7 +11,14 @@ listt=[]
 for char in a:
     result=char[::-1]
     listt.append(result)
+    #listt.append(char[::-1])
 listt.sort()
 listt.reverse()
 print(listt)
 
+# better codes:
+# a=a[::-1]
+# a=a.split(' ')
+# a.sort()
+# a.reverse()
+# print(a)
