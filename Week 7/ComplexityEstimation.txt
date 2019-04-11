@@ -1,0 +1,2 @@
+The complexity is n^n:
+this question can be seen as a tree. Since we have n numbers, then the tree has n leaves. Every two leaves have at most 6 calculate forms which can be simplified as 1. Thus, the complexity is n*n*n*...*n (the number of n is n)=n^n 
