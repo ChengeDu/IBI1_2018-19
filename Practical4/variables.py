@@ -25,8 +25,10 @@ Y=False
 #Z=X ^ Y
 Z=(X and not Y) or (Y and not X)
 print('Z=',Z)
-if X!=Y:
-    print('True')
+W=(X!=Y)
+print('W=',W)
+if Z==W:
+    print('Z is same to W')
 else:
-    print('False')
+    print('Z is not same to W')
 
