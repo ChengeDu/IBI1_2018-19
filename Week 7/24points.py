@@ -36,18 +36,19 @@ def calcu(i,a,b):
         return(-1)
 
 def point24(ll):
-    global qwq
+    global flag
     global count
     leng=len(ll)
-    if qwq:
-        return(-1)
+    if flag:
+        return(-1) #means already found,so do not need to continue the following sentence,just
+                   #return back to the former recursion
     if leng==1:
        if ll[0]==24:
             print('Yes')
             #qwq=True
             return(-1) #-1 means I find the solution
        return(-2)
-    if not qwq:          
+    if not flag:          
        #print(qwq)
        for i in range(leng-1):
            count+=1
@@ -63,8 +64,8 @@ def point24(ll):
                        ll.remove(b)
                        ll.append(m)
                        #print('ll',ll)
-                       if (point24(ll)==-1) and (not qwq):
-                           qwq=True
+                       if (point24(ll)==-1) and (not flag):
+                           flag=True
                            #print('Find out')
                            print('Recursion times:',count)
                            #break
@@ -75,19 +76,22 @@ def point24(ll):
                     #break
            #if qwq:
               #break
-                            
+#Actually I want to return to the main program when the answer is found, however,
+# I found using 'exit' is not good because I cannot see the results. So finally I
+# chose flag to decrease the operation times of calculate and judgment statements,
+# but I still wonder if there is a better solution.                            
                               
     
 
 s=input('Please input numbers to computer 24:(use ‘,’ to divide them)')
 ss=re.split(r',',s) 
 l=[]
-qwq=False
+flag=False
 count=0
 if intext():
     #can use tuples to return 2 variables
     point24(l)
-    if not qwq:
+    if not flag:
         print('No')
         print('Recursion times:',count)
 #change the names and make them more meaningful
