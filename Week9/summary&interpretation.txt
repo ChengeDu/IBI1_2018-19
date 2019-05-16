@@ -1,8 +1,23 @@
-summary:
-the similarity between the SOD2 protein in human and mouse is 0.8963963963963963
-the similarity between the SOD2 protein of human and random sequence is 0.05429864253393665
-the similarity between the SOD2 protein of mouse and random sequence is 0.049773755656108594
-so the similarity between human and mouse is the highest
+Summary:
+SOD2 protein gene in human and mouse:
+score: 1091
+normalised score:  4.914414414414415
+percentage identify:  89.64%
+edit distance:  23
 
-interpretation:
+SOD2 protein gene of human and random sequence:
+percentage identify:  5.43%
+score:  -246
+normalised score:  -1.1131221719457014
+edit distance:  209
+
+SOD2 protein gene of mouse and random sequence:
+percentage identify:  4.98%
+total score:  -256
+normalised score:  -1.158371040723982
+edit distance:  210
+
+So the gene sequence similarity between SOD2 of human and mouse is the highest.
+
+Interpretation:
 Since human and mouse are both mammal animals, and we compare both the SOD2 protein in them. However, the random sequence is random so it does not include meaningful information in the sequence. Thus, the sequence in human and mouse should have high similarity.
