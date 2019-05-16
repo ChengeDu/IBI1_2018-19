@@ -9,7 +9,15 @@ import fractions
 
 def intext():
     global l
+    number=['0','1','2','3','4','5','6','7','8','9']
     for i in range(len(ss)):
+        judge=''
+        judge=ss[i]
+        #judge whether the input sequence is a series of numbers
+        for j in range(len(judge)):
+            if judge[j] not in number:
+                return(False)
+        #judge whether the numbers in sequence are in [1,23]
         k=int(ss[i])
         if k<1 or k>23:
             return(False)
@@ -45,21 +53,22 @@ def point24(ll):
     if leng==1:
        if ll[0]==24:
             print('Yes')
-            #qwq=True
             return(-1) #-1 means I find the solution
-       return(-2)
-    if not flag:          
-       #print(qwq)
+       return(-2) #means this final result is not our solution
+    if not flag:     
+       #select 2 numbers
        for i in range(leng-1):
            count+=1
            for j in range(i+1,leng):
                count+=1
+               #select one arithmetic combination
                for k in range(6):
                    count+=1
                    a=ll[i]
                    b=ll[j]
-                   m=calcu(k,a,b)
+                   m=calcu(k,a,b) #calcu is a function of all arithmetic combination between 2 numbers
                    if m!=-1:
+                       #renew the list
                        ll.remove(a)
                        ll.remove(b)
                        ll.append(m)
@@ -69,13 +78,11 @@ def point24(ll):
                            #print('Find out')
                            print('Recursion times:',count)
                            #break
+                       #add the changed list back to the list ll
                        ll.remove(m)
                        ll.append(a)
                        ll.append(b)
-               #if qwq:
-                    #break
-           #if qwq:
-              #break
+              
 #Actually I want to return to the main program when the answer is found, however,
 # I found using 'exit' is not good because I cannot see the results. So finally I
 # chose flag to decrease the operation times of calculate and judgment statements,
@@ -89,10 +96,12 @@ l=[]
 flag=False
 count=0
 if intext():
-    #can use tuples to return 2 variables
-    point24(l)
+    #can better use tuples to return 2 variables
+    point24(l) #recursion function to get the result
     if not flag:
         print('No')
         print('Recursion times:',count)
+else:
+    print('The input numbers are not valid')
 #change the names and make them more meaningful
 #output in the same section
