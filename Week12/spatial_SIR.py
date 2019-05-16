@@ -30,7 +30,10 @@ infected.append([x,y])
 
 print('time= 0') #print the initial situation
 plt.figure(figsize=(6,4),dpi=150)
-plt.imshow(population,cmap='viridis',interpolation='nearest')
+plt.imshow(population, vmin=0, vmax=2) 
+
+#save it as png
+#plt.savefig('C:/Users/Joanna/Desktop/黄帝内经/IBI1_2018-19/Week12/spatial_SIR_0.png')
 
 beta=0.3 #infect probability
 gamma=0.05 #recover probability
@@ -67,8 +70,18 @@ for i in range(1,101):
     if i==10 or i==50 or i==100:
         print('time=',i)
         plt.figure(figsize=(6,4),dpi=150)
-        plt.imshow(population,cmap='viridis',interpolation='nearest')
-    
+        plt.imshow(population, vmin=0, vmax=2) 
+        #plt.imshow(population,cmap='viridis',interpolation='nearest')
+        
+        #save this plot as png
+'''
+        if i==10:
+           plt.savefig('C:/Users/Joanna/Desktop/黄帝内经/IBI1_2018-19/Week12/spatial_SIR_10.png')
+        if i==50:
+           plt.savefig('C:/Users/Joanna/Desktop/黄帝内经/IBI1_2018-19/Week12/spatial_SIR_50.png')
+        if i==100:
+           plt.savefig('C:/Users/Joanna/Desktop/黄帝内经/IBI1_2018-19/Week12/spatial_SIR_100.png')
+'''    
                      
                             
        

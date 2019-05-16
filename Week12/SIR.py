@@ -64,7 +64,8 @@ plt.ylabel('number of people')
 plt.title('SIR model')
 plt.legend()
 plt.show()
-
+#save this plot as png
+#plt.savefig('C:/Users/Joanna/Desktop/黄帝内经/IBI1_2018-19/Week12/SIR.png')
     
     
     
