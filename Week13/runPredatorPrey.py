@@ -170,6 +170,6 @@ for i in range(100):
     predator='Predator (b='+str(para[0])+',d='+str(para[1])+')'
     prey='Prey (b='+str(para[2])+',d='+str(para[3])+')'
     #plot the figure each time
-    #plot()  
+    plot()  
 '''
     
