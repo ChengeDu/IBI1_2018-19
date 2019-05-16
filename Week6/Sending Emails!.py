@@ -17,7 +17,6 @@ import smtplib
 from email.mime.text import MIMEText
 from email.header import Header
 sender='3180111437@zju.edu.cn'
-#receiver='1666148325@qq.com'
 # SMTP service
 mail_host="smtp.zju.edu.cn"  #server
 mail_user="3180111437"    #user
@@ -30,6 +29,7 @@ print('Password:',mail_pass)
 xaddress=open('address_information.csv','r')
 con=open('body.txt','r')
 content=con.read()
+
 for line in xaddress:
     line=line.rstrip()
     #use split to devide the line into 3 parts
@@ -60,6 +60,7 @@ for line in xaddress:
 
     #if it is a correct address, then send emails:
     if bo==True:
+       #modify the content of User
        message=content.replace('User',name)
        msg=MIMEText(message,'plain','utf-8')
        msg['From']=Header('Joanna','utf-8')
@@ -75,4 +76,6 @@ for line in xaddress:
        except smtplib.SMTPException:
            print('Mail sent failed!')
 
-        
+#close the file
+xaddress.close()
+con.close()        
