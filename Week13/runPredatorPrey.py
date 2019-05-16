@@ -100,7 +100,7 @@ def plot():
     plt.xlabel('predator population')
     plt.ylabel('prey population')
     plt.title('Limit cycle')
-    plt.legend()
+    #plt.legend()
     plt.show()
 
 def changeparameter():
@@ -154,6 +154,9 @@ plot()
 
 
 #--------------------------Running many simulations----------------------------
+#since the simulation time is 100, plot made my computer broke down, so just hid the following
+#codes for security
+'''
 for i in range(100):
     para=[]
     #change the 4 parameters of predator-prey.xml
@@ -167,5 +170,6 @@ for i in range(100):
     predator='Predator (b='+str(para[0])+',d='+str(para[1])+')'
     prey='Prey (b='+str(para[2])+',d='+str(para[3])+')'
     #plot the figure each time
-    plot()
+    #plot()  
+'''
     
