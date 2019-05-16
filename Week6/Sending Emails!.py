@@ -1,17 +1,3 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Sat May 11 16:11:31 2019
-
-@author: Joanna
-"""
-
-# -*- coding: utf-8 -*-
-"""
-Created on Tue Mar 26 18:08:39 2019
-
-@author: Joanna
-"""
-#coding:utf-8
 import re
 import smtplib
 from email.mime.text import MIMEText
@@ -35,7 +21,7 @@ for line in xaddress:
     #use split to devide the line into 3 parts
     lineinfo=line.split(',')    
     name=lineinfo[0]
-    receiver=lineinfo[1]
+    receiveadd=lineinfo[1]
     subject=lineinfo[2]
 
     #if it is line 1, then skip the following procedure
@@ -45,32 +31,34 @@ for line in xaddress:
     bo=False
     
     #judge whether it is a valid address
-    if re.search(r'[^,]+@[0-9a-zA-Z]+.com',receiver):
-        #actually .com is not enough to check
+    re_email=re.compile(r'^[0-9A-Za-z_]+@[0-9A-Za-z_]+(\.[0-9A-Za-z_]+)+$')
+    if re_email.match(receiveadd):
         bo=True
-        print(receiver,end='')
-        print(': Correct Address!')
-    elif re.search(r'[^,]+@[0-9a-zA-Z]+.[a-zA-Z]+.cn',receiver):
-        bo=True
-        print(receiver,end='')
-        print(': Correct Address!')
+        print(receiveadd,': Correct Address!')
     else:
-        print(receiver,end='')
-        print(': Wrong Address!')
+        print(receiveadd,': Wrong Address!')
 
     #if it is a correct address, then send emails:
     if bo==True:
        #modify the content of User
        message=content.replace('User',name)
        msg=MIMEText(message,'plain','utf-8')
-       msg['From']=Header('Joanna','utf-8')
-       msg['To']=Header(receiver,'ascii')
+       
+       sendname='Joanna'
+       sendinfo=Header(sendname,'utf-8')
+       sendinfo.append(sender,'ascii')
+       msg['From']=sendinfo
+       
+       receiveinfo=Header(name,'utf-8')
+       receiveinfo.append(receiveadd,'ascii')
+       msg['To']=receiveinfo
+       
        msg['Subject']=Header(subject,'utf-8')        
        try:
            server=smtplib.SMTP(mail_host,25)
            server.connect(mail_host,25)
            server.login(mail_user,mail_pass)
-           server.sendmail(sender,receiver,msg.as_string())
+           server.sendmail(sender,receiveadd,msg.as_string())
            server.quit()
            print('Mail sent successfully!')
        except smtplib.SMTPException:
